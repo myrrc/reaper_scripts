@@ -1,6 +1,14 @@
--- @description Render Addictive Drums 2 track as drum multitracks
+-- @description Render Addictive Drums 2 track to separate multitracks
 -- @author myrrc
--- @version 0.01
+-- @version 0.1
+-- @links
+--   Forum Thread ...
+--   GitHub repository https://github.com/myrrc/reaper_scripts
+-- @about
+--   # Render Addictive Drums 2 track to separate multitracks
+--
+--   Script renders a track with Addictive Drums 2 plugin into separate multitracks.
+--   Suitable for mixing purposes
 
 render_folder = "..\\src_mixing"
 
