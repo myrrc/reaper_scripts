@@ -1,6 +1,6 @@
 -- @description Render Addictive Drums 2 track as drum multitracks
 -- @author myrrc
--- @version 0.01
+-- @version 0.02
 
 render_folder = "..\\src_mixing"
 
@@ -34,7 +34,7 @@ function render(render_dir, render_file, channels)
     d6 = xchg("RENDER_FORMAT", "evaw")
 
     -- if we don't delete file explicitly, Reaper will issue an overwrite warning
-    os.remove(render_dir .. "\\" .. render_file)
+    os.remove(render_dir .. "\\" .. render_file .. ".wav")
 
     RENDER_WITH_AUTO_CLOSE_ID = 42230
     reaper.Main_OnCommandEx(RENDER_WITH_AUTO_CLOSE_ID, 0, CURR_PROJ)
@@ -87,28 +87,9 @@ end
 
 reaper.PreventUIRefresh(1)
 reaper.Undo_BeginBlock()
--- create and manage undo state
 if main() == nil then
     return nil
 end
 reaper.Undo_EndBlock("AD2 render", -1)
 reaper.UpdateArrange()
 reaper.PreventUIRefresh(-1)
-
---    -- if split is on, remember blend %, set kick and snare blend to 0%
---    --kick_blend = 0
---    --snare_blend = 0
--- MONO_SEND = 1024
---
---    kick_idx = 1
---    reaper.InsertTrackAtIndex(kick_idx, false)
---    kick_track = reaper.GetTrack(CUR_PROJ, kick_idx)
---    kick_send_idx = reaper.CreateTrackSend(drums_track, kick_track)
---    if kick_send_idx < 0 then return msg("Error creating master->kick send") end
---
---    ok = reaper.SetTrackSendInfo_Value(drums_track, 0, kick_send_idx, "I_SRCCHAN", PINS.kick)
---    if not ok then return msg("Error modifying master->kick send") end
---
---    -- render tracks to folders regarding names
---    -- if split is on, set split to 100% and render kick and snare
---    -- if split is on, restore blend %
