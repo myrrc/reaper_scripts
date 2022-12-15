@@ -1,15 +1,8 @@
--- @description Render Addictive Drums 2 track to separate multitracks
+-- @description Render Addictive Drums 2 track as drum multitracks
 -- @author myrrc
--- @version 0.1
--- @links
---   Forum Thread ...
---   GitHub repository https://github.com/myrrc/reaper_scripts
--- @about
---   # Render Addictive Drums 2 track to separate multitracks
---
---   Script renders a track with Addictive Drums 2 plugin into separate multitracks.
---   Suitable for mixing purposes
+-- @version 0.01
 
+split_kick = false -- split kick track into kick_in and kick_out
 render_folder = "..\\src_mixing"
 
 CUR_PROJ = 0
@@ -42,7 +35,7 @@ function render(render_dir, render_file, channels)
     d6 = xchg("RENDER_FORMAT", "evaw")
 
     -- if we don't delete file explicitly, Reaper will issue an overwrite warning
-    os.remove(render_dir .. "\\" .. render_file)
+    os.remove(render_dir .. "\\" .. render_file .. ".wav")
 
     RENDER_WITH_AUTO_CLOSE_ID = 42230
     reaper.Main_OnCommandEx(RENDER_WITH_AUTO_CLOSE_ID, 0, CURR_PROJ)
@@ -85,6 +78,9 @@ function main()
     -- not sure whether this should be a subfolder rather than a separate folder; better use path.normalize
     record_path = reaper.GetProjectPathEx() .. "\\" .. render_folder
     reaper.RecursiveCreateDirectory(record_path, 0)
+
+    -- AD2Sampler -> SNAR -> MicBalance [0; 1]
+    -- AD2Sampler -> KICK -> MicBalance
 
     render_many(1, { kick = 236, snare = 240, hihat = 244,
         hi_tom = 248, med_tom = 252, lo_tom = 256 , floor_tom = 260,
