@@ -79,9 +79,6 @@ function main()
     record_path = reaper.GetProjectPathEx() .. "\\" .. render_folder
     reaper.RecursiveCreateDirectory(record_path, 0)
 
-    -- AD2Sampler -> SNAR -> MicBalance [0; 1]
-    -- AD2Sampler -> KICK -> MicBalance
-
     render_many(1, { kick = 236, snare = 240, hihat = 244,
         hi_tom = 248, med_tom = 252, lo_tom = 256 , floor_tom = 260,
         flexi_1 = 264, flexi_2 = 268, flexi_3 = 272 })
@@ -90,29 +87,10 @@ function main()
 end
 
 reaper.PreventUIRefresh(1)
-reaper.Undo_BeginBlock()
--- create and manage undo state
+reaper.Undo_BeginBlock() -- create and manage undo state
 if main() == nil then
     return nil
 end
 reaper.Undo_EndBlock("AD2 render", -1)
 reaper.UpdateArrange()
 reaper.PreventUIRefresh(-1)
-
---    -- if split is on, remember blend %, set kick and snare blend to 0%
---    --kick_blend = 0
---    --snare_blend = 0
--- MONO_SEND = 1024
---
---    kick_idx = 1
---    reaper.InsertTrackAtIndex(kick_idx, false)
---    kick_track = reaper.GetTrack(CUR_PROJ, kick_idx)
---    kick_send_idx = reaper.CreateTrackSend(drums_track, kick_track)
---    if kick_send_idx < 0 then return msg("Error creating master->kick send") end
---
---    ok = reaper.SetTrackSendInfo_Value(drums_track, 0, kick_send_idx, "I_SRCCHAN", PINS.kick)
---    if not ok then return msg("Error modifying master->kick send") end
---
---    -- render tracks to folders regarding names
---    -- if split is on, set split to 100% and render kick and snare
---    -- if split is on, restore blend %
