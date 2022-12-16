@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="myrrc scripts"/>
+<index version="1" name="myrrc scripts" commit="4ff2b81fa8d7a055dc7b87eede801e36b8ee6ee0">
+  <category name="Rendering">
+    <reapack name="ad2mixrender.lua" type="script" desc="Render Addictive Drums 2 track as drum multitracks">
+      <version name="0.01" author="myrrc" time="2022-12-15T00:36:38Z">
+        <source main="main">https://github.com/myrrc/reaper_scripts/raw/fb6e609d6d3f19272ff9202907250a4e0fe5062a/Rendering/ad2mixrender.lua</source>
+      </version>
+    </reapack>
+  </category>
+</index>
