@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="myrrc scripts" commit="1a5ffceae8ebfd4133f125483eae9963e0e06bec">
+  <category name="MIDINoteNames">
+    <reapack name="AddictiveDrums2.txt" type="midinotenames">
+      <version name="0.0.1" time="2023-01-30T16:37:01Z">
+        <source>https://github.com/myrrc/reaper_scripts/raw/1a5ffceae8ebfd4133f125483eae9963e0e06bec/MIDINoteNames/AddictiveDrums2.txt</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Rendering">
+    <reapack name="ad2mixrender.lua" type="script" desc="Render Addictive Drums 2 track as drum multitracks">
+      <version name="0.02" author="myrrc" time="2023-01-30T16:37:01Z">
+        <source main="main">https://github.com/myrrc/reaper_scripts/raw/1a5ffceae8ebfd4133f125483eae9963e0e06bec/Rendering/ad2mixrender.lua</source>
+      </version>
+    </reapack>
+  </category>
+</index>
