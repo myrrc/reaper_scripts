@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="myrrc scripts" commit="1a5ffceae8ebfd4133f125483eae9963e0e06bec">
+<index version="1" name="myrrc scripts" commit="123bd0dfbcf129e67536e068a481fcab989e2495">
   <category name="MIDINoteNames">
     <reapack name="AddictiveDrums2.txt" type="midinotenames">
       <version name="0.0.1" time="2023-01-30T16:37:01Z">
         <source>https://github.com/myrrc/reaper_scripts/raw/1a5ffceae8ebfd4133f125483eae9963e0e06bec/MIDINoteNames/AddictiveDrums2.txt</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Mods">
+    <reapack name="INQUASAR Dark Matter.theme" type="theme" desc="INQUASAR Dark Matter">
+      <metadata>
+        <link rel="website" href="https://stash.reaper.fm/theme/2115/INQUASAR%20DARK%20MATTER%20v.1.0.ReaperThemeZip">Stash</link>
+        <link rel="screenshot">https://stash.reaper.fm/32871/01_Inquasar_Dark_Matter.jpg</link>
+      </metadata>
+      <version name="1.0" author="IVL_Nordum" time="2023-02-01T23:50:12Z">
+        <source file="INQUASAR Dark Matter.ReaperThemeZip">https://stash.reaper.fm/32870/INQUASAR%20DARK%20MATTER%20v.1.0.ReaperThemeZip</source>
       </version>
     </reapack>
   </category>
